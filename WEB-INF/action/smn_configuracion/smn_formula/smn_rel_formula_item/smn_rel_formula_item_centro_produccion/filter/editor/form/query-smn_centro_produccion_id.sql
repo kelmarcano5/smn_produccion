@@ -1,0 +1,1 @@
+select smn_produccion.smn_centro_produccion.smn_centro_produccion_id as id, smn_produccion.smn_centro_produccion.cpr_codigo ||' - '|| smn_produccion.smn_centro_produccion.cpr_descripcion as item from smn_produccion.smn_centro_produccion

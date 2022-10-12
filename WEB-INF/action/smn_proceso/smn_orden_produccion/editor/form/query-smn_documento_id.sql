@@ -1,0 +1,1 @@
+select smn_produccion.smn_documento.smn_documento_id as id, smn_produccion.smn_documento.doc_codigo ||' - '|| smn_produccion.smn_documento.doc_nombre as item from smn_produccion.smn_documento order by smn_produccion.smn_documento.doc_nombre asc

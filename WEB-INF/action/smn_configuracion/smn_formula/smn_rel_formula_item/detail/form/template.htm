@@ -1,0 +1,186 @@
+<!doctype html>
+<html>
+
+<head>
+
+	<link rel="stylesheet" type="text/css" href="${def:context}/dinamica_bkp.css" />
+	<link rel="stylesheet" type="text/css" href="${def:context}/main.css" />
+	
+	<script type="text/javascript" src="${def:context}/action/script">
+	</script>
+
+	<script type="text/javascript">
+		//invoca la generacion de un PDF en un popup
+		function openPDF()
+		{
+			var features = "height=500,width=800,status=no,toolbar=no,menubar=no,location=no,scrollbars=yes,resizable=yes";
+			var url = "${def:context}${def:actionroot}/pdf?random=" + Math.random();
+			var w = window.open(url, null, features);
+		}
+		
+		//exportar a excel
+		function openExcel() {
+			var features = "height=500,width=800,status=no,toolbar=no,menubar=no,location=no,scrollbars=yes,resizable=yes";
+			var url = "${def:context}${def:actionroot}/excel?random=" + Math.random();
+			var w = window.open(url, null, features);
+		}
+		
+		//exportar a xml
+		function openXml(id) {
+			var features = "height=500,width=800,status=no,toolbar=no,menubar=no,location=no,scrollbars=yes,resizable=yes";
+			var url = "${def:context}${def:actionroot}/xml/search?id=" + id;
+			var w = window.open(url, null, features);
+		}
+		
+		//exportar a texto
+		function openTxt(id) {
+			var features = "height=500,width=800,status=no,toolbar=no,menubar=no,location=no,scrollbars=yes,resizable=yes";
+			var url = "${def:context}${def:actionroot}/txt/search?id=" + id;
+			var w = window.open(url, null, features);
+		}
+		
+		//envio de emails
+		function openEmails() {
+			var uri = "${def:context}${def:actionroot}/email/form";					
+			openDialog("editor0", uri, 980, 600);	
+		}
+	</script>
+
+</head>
+
+<body>
+
+	<!--banner-->
+	<div class="bannerDialog" id="encabezado_tabla">
+		${lbl:b_relationship_formula_item}
+		<img src="${def:context}/images/pdf.png" onclick="openPDF()" title="${lbl:b_export_pdf}" style="cursor:pointer; margin-left:3px;"/>
+		<img src="${def:context}/images/excel.png" onclick="openExcel()" title="${lbl:b_export_excel}" style="cursor:pointer; margin-left:3px;"/>
+		<img src="${def:context}/images/close.png" class="button" onclick="parent.closeDialog()" title="${lbl:b_close_button}" style="float:right; cursor:pointer;"/>
+	</div>
+
+	<table class="record" style="width:500px;">
+		<tr>
+			<td width="40%">${lbl:b_formula}</td>
+			<td style="background-color: white">${fld:smn_formula_id_combo}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_level_structure}</td>
+			<td style="background-color: white">${fld:smn_nivel_estructura_id_combo}</td>
+		</tr>
+
+	</table>
+<!-- <table class="datagrid" width="600px">
+
+	<tr>
+		<th colspan="5" style="font-weight:bold;font-size:10pt;">
+			${lbl:b_relationship_formula_item_materials}
+		</th>
+	</tr>
+
+	<tr>
+		<th width="20%">${lbl:b_relationship_formula_item_materials}</th>
+		<th width="20%">${lbl:b_item}</th>
+		<th width="20%">${lbl:b_quantity}</th>
+		<th width="20%">${lbl:b_unidad_medida}</th>
+		<th width="20%">${lbl:b_store_date}</th>
+	</tr>
+
+	<rows-smnrelformulaitemmateriales>
+	<tr>
+		<td align="center">${fld:smn_rel_formula_item_materiales_id}</td>
+		<td>${fld:smn_item_id_combo}</td>
+		<td align="right">${fld:rfm_cantidad@#,###,##0.00}</td>
+		<td>${fld:smn_unidad_medida_rf_combo}</td>
+		<td align="center">${fld:rfm_fecha_registro@dd-MM-yyyy}</td>
+	</tr>
+	</rows-smnrelformulaitemmateriales>
+
+</table>
+<table class="datagrid" width="600px">
+
+	<tr>
+		<th colspan="4" style="font-weight:bold;font-size:10pt;">
+			${lbl:b_relationship_formula_item_center_production}
+		</th>
+	</tr>
+
+	<tr>
+		<th width="25%">${lbl:b_relationship_formula_item_center_production}</th>
+		<th width="25%">${lbl:b_center_production}</th>
+		<th width="25%">${lbl:b_production_line}</th>
+		<th width="25%">${lbl:b_store_date}</th>
+	</tr>
+
+	<rows-smnrelformulaitemcentroproduccion>
+	<tr>
+		<td align="center">${fld:smn_rel_formula_item_centro_produccion_id}</td>
+		<td>${fld:smn_centro_produccion_id_combo}</td>
+		<td>${fld:smn_linea_produccion_id_combo}</td>
+		<td align="center">${fld:rfc_fecha_registro@dd-MM-yyyy}</td>
+	</tr>
+	</rows-smnrelformulaitemcentroproduccion>
+
+</table>
+<table class="datagrid" width="600px">
+
+	<tr>
+		<th colspan="5" style="font-weight:bold;font-size:10pt;">
+			${lbl:b_relationship_formula_teams}
+		</th>
+	</tr>
+
+	<tr>
+		<th width="20%">${lbl:b_relationship_formula_teams}</th>
+		<th width="20%">${lbl:b_active_fij}</th>
+		<th width="20%">${lbl:b_quantity}</th>
+		<th width="20%">${lbl:b_unidad_medida}</th>
+		<th width="20%">${lbl:b_store_date}</th>
+	</tr>
+
+	<rows-smnrelformulaitemequipos>
+	<tr>
+		<td align="center">${fld:smn_rel_formula_item_equipos_id}</td>
+		<td>${fld:smn_activo_id_combo}</td>
+		<td align="right">${fld:rfe_cantidad@#,###,##0.00}</td>
+		<td>${fld:smn_unidad_medida_rf_combo}</td>
+		<td align="center">${fld:rfe_fecha_registro@dd-MM-yyyy}</td>
+	</tr>
+	</rows-smnrelformulaitemequipos>
+
+</table>
+<table class="datagrid" width="600px">
+
+	<tr>
+		<th colspan="5" style="font-weight:bold;font-size:10pt;">
+			${lbl:b_relationship_formula_functions}
+		</th>
+	</tr>
+
+	<tr>
+		<th width="20%">${lbl:b_relationship_formula_functions}</th>
+		<th width="20%">${lbl:b_functions}</th>
+		<th width="20%">${lbl:b_quantity}</th>
+		<th width="20%">${lbl:b_unidad_medida}</th>
+		<th width="20%">${lbl:b_store_date}</th>
+	</tr>
+
+	<rows-smnrelformulaitemfunciones>
+	<tr>
+		<td align="center">${fld:smn_rel_formula_item_funciones_id}</td>
+		<td>${fld:smn_funciones_id_combo}</td>
+		<td align="right">${fld:rfe_cantidad@#,###,##0.00}</td>
+		<td>${fld:smn_unidad_medida_rf_combo}</td>
+		<td align="center">${fld:rff_fecha_registro@dd-MM-yyyy}</td>
+	</tr>
+	</rows-smnrelformulaitemfunciones>
+
+</table> -->
+
+	<br>
+	<div  align="center">
+		<input id="salir" type="button" value="${lbl:s_exit}" onclick="parent.closeDialog()" class="button">
+	</div>
+
+</body>
+
+</html>

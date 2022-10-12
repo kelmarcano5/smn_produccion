@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator id='repgen.filter' onerror='/action/error/validation/ajax'>
+
+	<parameter id='fdesde' type='date' required='false' label='Fecha desde'/>
+	<parameter id='fhasta' type='date' required='false' label='Fecha hasta'/>
+	
+	<parameter id='smn_orden_produccion_id_name' type='varchar' required='false' label='${lbl:b_order_production}'/>
+	<parameter id='smn_orden_produccion_id' type='integer' required='false' label='${lbl:b_order_production}' maxlen='10'/>
+	<parameter id='smn_activo_rf' type='integer' required='false' label='${lbl:b_active_fij}' maxlen='10'/>
+	<parameter id='smn_centro_produccion_id' type='integer' required='false' label='${lbl:b_center_production}' maxlen='10'/>
+	<parameter id='smn_linea_produccion_id' type='integer' required='false' label='${lbl:b_production_line}' maxlen='10'/>
+	<parameter id='smn_funciones_id' type='integer' required='false' label='${lbl:b_functions}' maxlen='10'/>
+	<parameter id='opa_hora_inicial' type='varchar' required='false' label='${lbl:b_hora_inicial}' maxlen='8'/>
+	<parameter id='opa_hora_final' type='varchar' required='false' label='${lbl:b_hora_final}' maxlen='8'/>
+	<parameter id='opa_horas' type='varchar' required='false' label='${lbl:b_horas}' maxlen='8'/>
+	<parameter id='smn_unidad_medida_rf' type='integer' required='false' label='${lbl:b_unidad_medida}' maxlen='10'/>
+	<parameter id='opa_estatus' type='varchar' required='false' label='${lbl:b_status}' maxlen='2'/>
+
+	<custom-validator
+		classname='dinamica.validators.SQLPatternTransformer'
+		parameter='smn_orden_produccion_id_name'
+		rule='contains' />
+
+	<custom-validator
+		classname='dinamica.validators.SQLPatternTransformer'
+		parameter='opa_hora_inicial'
+		rule='contains' />
+
+	<custom-validator
+		classname='dinamica.validators.SQLPatternTransformer'
+		parameter='opa_hora_final'
+		rule='contains' />
+
+	<custom-validator
+		classname='dinamica.validators.SQLPatternTransformer'
+		parameter='opa_horas'
+		rule='contains' />
+
+	<custom-validator
+		classname='dinamica.validators.SQLPatternTransformer'
+		parameter='opa_estatus'
+		rule='contains' />
+
+
+
+	<custom-validator
+			classname='dinamica.validators.ArrayNotEmptyValidator'
+			on-error-label='Seleccione al menos un campo para la generación del reporte.'
+			parameter-name='field_id' 
+			id='field_id' />
+
+	<custom-validator 
+			classname='dinamica.validators.ArrayToRecordset'
+			paramName='field_id' 
+			recordsetId='fields' 
+			colName='field_id' 
+			colType='integer' />
+				
+</validator>

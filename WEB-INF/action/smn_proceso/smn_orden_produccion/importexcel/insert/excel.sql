@@ -1,0 +1,40 @@
+INSERT INTO smn_produccion.smn_orden_produccion
+(
+	smn_orden_produccion_id,
+	smn_modulo_rf,
+	smn_documento_origen_rf,
+	opr_numero_documento_origen,
+	smn_usuario_solicitante_rf,
+	smn_documento_id,
+	opr_numero_documento,
+	opr_descripcion,
+	smn_entidad_rf,
+	smn_sucursal_rf,
+	smn_item_rf,
+	opr_cantidad,
+	opr_fecha_solicitud,
+	opr_fecha_despacho,
+	smn_rol_id,
+	opr_estatus,
+	opr_fecha_registro
+)
+VALUES
+(
+	${seq:nextval@smn_produccion.seq_smn_orden_produccion},
+	?,
+	?,
+	?,
+	?,
+	?,
+	?,
+	?,
+	?,
+	?,
+	?,
+	?,
+	?,
+	?,
+	?,
+	?,
+	{d '${def:date}'}
+)

@@ -1,0 +1,1 @@
+select smn_produccion.smn_rol.smn_rol_id as id, smn_produccion.smn_rol.rol_tipo as item from smn_produccion.smn_rol ORDER BY smn_produccion.smn_rol.rol_tipo asc

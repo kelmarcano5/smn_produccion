@@ -1,0 +1,46 @@
+INSERT INTO smn_produccion.smn_orden_produccion
+(
+	smn_orden_produccion_id,
+	smn_modulo_rf,
+	smn_documento_origen_rf,
+	opr_numero_documento_origen,
+	smn_usuario_solicitante_rf,
+	smn_documento_id,
+	opr_numero_documento,
+	opr_descripcion,
+	smn_entidad_rf,
+	smn_sucursal_rf,
+	smn_item_rf,
+	opr_cantidad,
+	opr_fecha_solicitud,
+	opr_fecha_despacho,
+	smn_rol_id,
+	opr_estatus,
+	opr_idioma,
+	opr_usuario,
+	opr_fecha_registro,
+	opr_hora
+)
+VALUES
+(
+	${seq:currval@smn_produccion.seq_smn_orden_produccion},
+	${fld:smn_modulo_rf},
+	${fld:smn_documento_origen_rf},
+	${fld:opr_numero_documento_origen},
+	${fld:smn_usuario_solicitante_rf},
+	${fld:smn_documento_id},
+	${fld:opr_numero_documento},
+	${fld:opr_descripcion},
+	${fld:smn_entidad_rf},
+	${fld:smn_sucursal_rf},
+	${fld:smn_item_rf},
+	${fld:opr_cantidad},
+	${fld:opr_fecha_solicitud},
+	${fld:opr_fecha_despacho},
+	${fld:smn_rol_id},
+	${fld:opr_estatus},
+	'${def:locale}',
+	'${def:user}',
+	{d '${def:date}'},
+	'${def:time}'
+)

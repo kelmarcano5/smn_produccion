@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator onerror='/action/error/validation/ajax'>
+	<parameter id='for_codigo' type='varchar' required='true' label='${lbl:b_code}' maxlen='64'/>
+	<parameter id='for_descripcion' type='varchar' required='true' label='${lbl:b_description}' maxlen='200'/>
+	<parameter id='for_estatus' type='varchar' required='false' label='${lbl:b_status}' maxlen='10'/>
+	<parameter id='id' type='integer' required='true' label='${lbl:b_formula}' maxlen='10'/>
+
+
+</validator>

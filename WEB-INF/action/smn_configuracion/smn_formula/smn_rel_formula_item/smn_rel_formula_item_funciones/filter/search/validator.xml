@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator id='filter.params' onerror='/action/error/validation/ajax'>
+	<parameter id='smn_rel_formula_item_id' type='integer' required='false' label='${lbl:b_relationship_formula_item}' maxlen='10'/>
+	<parameter id='smn_funciones_id' type='integer' required='false' label='${lbl:b_functions}' maxlen='10'/>
+	<parameter id='smn_unidad_medida_rf' type='integer' required='false' label='${lbl:b_unidad_medida}' maxlen='10'/>
+	<parameter id='rff_fecha_registro_ini' type='date' required='false' label='${lbl:b_store_date}' maxlen='10'/>
+	<custom-validator classname='dinamica.validators.DateRangeValidator' on-error-label='[${lbl:b_store_date} mayor o igual que] no puede ser mayor que [${lbl:b_store_date} menor o igual que].' date1='rff_fecha_registro_ini' date2='rff_fecha_registro_fin' id='rff_fecha_registro_ini' />
+	<parameter id='rff_fecha_registro_fin' type='date' required='false' label='${lbl:b_store_date}' maxlen='10'/>
+	<parameter id="id2" type="integer" required="false" label="ID2" maxlen="50" />
+</validator>

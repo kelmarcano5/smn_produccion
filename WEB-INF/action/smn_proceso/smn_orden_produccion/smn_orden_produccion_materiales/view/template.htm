@@ -1,0 +1,64 @@
+<!--data grid-->
+<table class="datagrid" style="width:95%;">
+
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='10%'/>
+	<col width='10%'/>
+	<col width='10%'/>
+	<col width='10%'/>
+	<col width='10%'/>
+	<col width='10%'/>
+	<col width='10%'/>
+	<col width='10%'/>
+	<col width='10%'/>
+	<col width='10%'/>
+
+
+	<!--toolbar-->
+	<tr>
+		<th colspan="13" id="encabezado_tabla">
+			${req:controls} 
+		</th>
+	</tr>
+
+	<!--encabezados-->
+	<tr>
+		<th></th>
+		<th></th>
+		<th></th>
+		<th class='sortable' onclick='sortBy("smn_orden_produccion_id","query-smnordenproduccionmateriales.sql")'>${lbl:b_order_production}</th>
+		<th class='sortable' onclick='sortBy("smn_centro_produccion_id","query-smnordenproduccionmateriales.sql")'>${lbl:b_center_production}</th>
+		<th class='sortable' onclick='sortBy("smn_linea_produccion_id","query-smnordenproduccionmateriales.sql")'>${lbl:b_production_line}</th>
+		<th class='sortable' onclick='sortBy("smn_item_rf","query-smnordenproduccionmateriales.sql")'>${lbl:b_item}</th>
+		<th class='sortable' onclick='sortBy("opm_cantidad_solicitada","query-smnordenproduccionmateriales.sql")'>${lbl:b_cantidad_solicitada}</th>
+		<th class='sortable' onclick='sortBy("opm_cantidad_despachada","query-smnordenproduccionmateriales.sql")'>${lbl:b_cantidad_despachada}</th>
+		<th class='sortable' onclick='sortBy("opm_costo_ml","query-smnordenproduccionmateriales.sql")'>${lbl:b_costo_ml}</th>
+		<th class='sortable' onclick='sortBy("opm_costo_ma","query-smnordenproduccionmateriales.sql")'>${lbl:b_costo_ma}</th>
+		<th class='sortable' onclick='sortBy("opm_estatus","query-smnordenproduccionmateriales.sql")'>${lbl:b_status}</th>
+		<th class='sortable' onclick='sortBy("opm_fecha_registro","query-smnordenproduccionmateriales.sql")'>${lbl:b_store_date}</th>
+
+	</tr>
+
+	<!--data-->
+	<rows>
+	<tr>
+		<td><img src="${def:context}/images/search.png"  onclick="getDetail('${fld:smn_orden_produccion_materiales_id}')" title="${lbl:b_view_detail}"></td>
+		<td><img src="${def:context}/images/delete.png"  onclick="deleteRecord('${fld:smn_orden_produccion_materiales_id}')" title="${lbl:b_delete_button}"></td>
+		<td><img src="${def:context}/images/edit.png"  onclick="showEditor('${fld:smn_orden_produccion_materiales_id}')" title="${lbl:b_edit_button}"></td>
+		<td>${fld:smn_orden_produccion_id}</td>
+		<td>${fld:smn_centro_produccion_id}</td>
+		<td>${fld:smn_linea_produccion_id}</td>
+		<td>${fld:smn_item_rf}</td>
+		<td align='right'>${fld:opm_cantidad_solicitada@#,###,##0.00}</td>
+		<td align='right'>${fld:opm_cantidad_despachada@#,###,##0.00}</td>
+		<td align='right'>${fld:opm_costo_ml@#,###,##0.00}</td>
+		<td align='right'>${fld:opm_costo_ma@#,###,##0.00}</td>
+		<td align='left'>${fld:opm_estatus}</td>
+		<td>${fld:opm_fecha_registro@dd-MM-yyyy}</td>
+
+	</tr>
+	</rows>
+
+</table>

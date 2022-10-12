@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator onerror='/action/error/validation/ajax'>
+	<parameter id='smn_orden_produccion_id_name' type='varchar' required='true' label='${lbl:b_order_production}'/>
+	<parameter id='smn_orden_produccion_id' type='integer' required='false' label='${lbl:b_order_production}' maxlen='10'/>
+	<parameter id='smn_centro_produccion_id' type='integer' required='true' label='${lbl:b_center_production}' maxlen='10'/>
+	<parameter id='smn_linea_produccion_id' type='integer' required='true' label='${lbl:b_production_line}' maxlen='10'/>
+	<parameter id='smn_activo_rf' type='integer' required='false' label='${lbl:b_active_fij}' maxlen='10'/>
+	<parameter id='ope_horas_uso' type='integer' required='false' label='${lbl:b_use_time}' maxlen='10'/>
+	<parameter id='smn_unidad_medida_rf' type='integer' required='false' label='${lbl:b_unidad_medida}' maxlen='10'/>
+	<parameter id='smn_rol_id' type='integer' required='true' label='${lbl:b_rol}' maxlen='10'/>
+	<parameter id='ope_estatus' type='varchar' required='true' label='${lbl:b_status}' maxlen='2'/>
+
+
+</validator>

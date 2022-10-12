@@ -1,0 +1,6 @@
+select
+	${field}
+from
+	smn_produccion.smn_orden_produccion_equipos
+where
+		smn_produccion.smn_orden_produccion_equipos.smn_orden_produccion_equipos_id is not null

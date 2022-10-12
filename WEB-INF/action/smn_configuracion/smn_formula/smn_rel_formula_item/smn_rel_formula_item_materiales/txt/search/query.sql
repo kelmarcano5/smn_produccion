@@ -1,0 +1,14 @@
+select
+		smn_produccion.smn_rel_formula_item_materiales.smn_rel_formula_item_materiales_id,
+select
+		smn_produccion.smn_rel_formula_item_materiales.smn_rel_formula_item_materiales_id,
+select
+		smn_produccion.smn_rel_formula_item_materiales.smn_rel_formula_item_materiales_id,
+	smn_produccion.smn_rel_formula_item_materiales.smn_rel_formula_item_id,
+	smn_produccion.smn_rel_formula_item_materiales.smn_item_id,
+	smn_produccion.smn_rel_formula_item_materiales.rfm_cantidad,
+	smn_produccion.smn_rel_formula_item_materiales.smn_unidad_medida_rf,
+	smn_produccion.smn_rel_formula_item_materiales.rfm_fecha_registro
+	
+from
+	smn_produccion.smn_rel_formula_item_materiales

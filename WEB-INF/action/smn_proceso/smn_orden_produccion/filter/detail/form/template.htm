@@ -1,0 +1,247 @@
+<!doctype html>
+<html>
+
+<head>
+
+	<link rel="stylesheet" type="text/css" href="${def:context}/dinamica_bkp.css" />
+	<link rel="stylesheet" type="text/css" href="${def:context}/main.css" />
+	
+	<script type="text/javascript" src="${def:context}/action/script">
+	</script>
+
+	<script type="text/javascript">
+		//invoca la generacion de un PDF en un popup
+		function openPDF()
+		{
+			var features = "height=500,width=800,status=no,toolbar=no,menubar=no,location=no,scrollbars=yes,resizable=yes";
+			var url = "${def:context}${def:actionroot}/pdf?random=" + Math.random();
+			var w = window.open(url, null, features);
+		}
+		
+		//exportar a excel
+		function openExcel() {
+			var features = "height=500,width=800,status=no,toolbar=no,menubar=no,location=no,scrollbars=yes,resizable=yes";
+			var url = "${def:context}${def:actionroot}/excel?random=" + Math.random();
+			var w = window.open(url, null, features);
+		}
+		
+		//exportar a xml
+		function openXml(id) {
+			var features = "height=500,width=800,status=no,toolbar=no,menubar=no,location=no,scrollbars=yes,resizable=yes";
+			var url = "${def:context}${def:actionroot}/xml/search?id=" + id;
+			var w = window.open(url, null, features);
+		}
+		
+		//exportar a texto
+		function openTxt(id) {
+			var features = "height=500,width=800,status=no,toolbar=no,menubar=no,location=no,scrollbars=yes,resizable=yes";
+			var url = "${def:context}${def:actionroot}/txt/search?id=" + id;
+			var w = window.open(url, null, features);
+		}
+		
+		//envio de emails
+		function openEmails() {
+			var uri = "${def:context}${def:actionroot}/email/form";					
+			openDialog("editor0", uri, 980, 600);	
+		}
+	</script>
+
+</head>
+
+<body>
+
+	<!--banner-->
+	<div class="bannerDialog" id="encabezado_tabla">
+		${lbl:b_order_production}
+		<img src="${def:context}/images/pdf.png" onclick="openPDF()" title="${lbl:b_export_pdf}" style="cursor:pointer; margin-left:3px;"/>
+		<img src="${def:context}/images/excel.png" onclick="openExcel()" title="${lbl:b_export_excel}" style="cursor:pointer; margin-left:3px;"/>
+		<img src="${def:context}/images/close.png" class="button" onclick="parent.closeDialog()" title="${lbl:b_close_button}" style="float:right; cursor:pointer;"/>
+	</div>
+
+	<table class="record" style="width:500px;">
+		<tr>
+			<td width="40%">${lbl:b_module}</td>
+			<td style="background-color: white">${fld:smn_modulo_rf}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_origen_documents}</td>
+			<td style="background-color: white">${fld:smn_documento_origen_rf}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_number_document_origin}</td>
+			<td style="background-color: white">${fld:opr_numero_documento_origen}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_users}</td>
+			<td style="background-color: white">${fld:smn_usuario_solicitante_rf}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_documents}</td>
+			<td style="background-color: white">${fld:smn_documento_id}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_number_document}</td>
+			<td style="background-color: white">${fld:opr_numero_documento}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_transaction_description}</td>
+			<td style="background-color: white">${fld:opr_descripcion}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_entities}</td>
+			<td style="background-color: white">${fld:smn_entidad_rf}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_subsidiaries}</td>
+			<td style="background-color: white">${fld:smn_sucursal_rf}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_item}</td>
+			<td style="background-color: white">${fld:smn_item_rf}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_quantity}</td>
+			<td style="background-color: white">${fld:opr_cantidad@#,###,##0.00}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_fecha_solicitud}</td>
+			<td style="background-color: white">${fld:opr_fecha_solicitud@dd-MM-yyyy}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_fecha_despacho}</td>
+			<td style="background-color: white">${fld:opr_fecha_despacho@dd-MM-yyyy}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_rol}</td>
+			<td style="background-color: white">${fld:smn_rol_id}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_status}</td>
+			<td style="background-color: white">${fld:opr_estatus}</td>
+		</tr>
+		<tr>
+			<td width="40%">${lbl:b_store_date}</td>
+			<td style="background-color: white">${fld:opr_fecha_registro@dd-MM-yyyy}</td>
+		</tr>
+
+	</table>
+<!-- <table class="datagrid" width="600px">
+
+	<tr>
+		<th colspan="10" style="font-weight:bold;font-size:10pt;">
+			${lbl:b_order_production_materials}
+		</th>
+	</tr>
+
+	<tr>
+		<th width="10%">${lbl:b_order_production_materials}</th>
+		<th width="10%">${lbl:b_center_production}</th>
+		<th width="10%">${lbl:b_production_line}</th>
+		<th width="10%">${lbl:b_item}</th>
+		<th width="10%">${lbl:b_cantidad_solicitada}</th>
+		<th width="10%">${lbl:b_cantidad_despachada}</th>
+		<th width="10%">${lbl:b_costo_ml}</th>
+		<th width="10%">${lbl:b_costo_ma}</th>
+		<th width="10%">${lbl:b_status}</th>
+		<th width="10%">${lbl:b_store_date}</th>
+	</tr>
+
+	<rows-smnordenproduccionmateriales>
+	<tr>
+		<td align="center">${fld:smn_orden_produccion_materiales_id}</td>
+		<td>${fld:smn_centro_produccion_id}</td>
+		<td>${fld:smn_linea_produccion_id}</td>
+		<td>${fld:smn_item_rf}</td>
+		<td align="right">${fld:opm_cantidad_solicitada@#,###,##0.00}</td>
+		<td align="right">${fld:opm_cantidad_despachada@#,###,##0.00}</td>
+		<td align="right">${fld:opm_costo_ml@#,###,##0.00}</td>
+		<td align="right">${fld:opm_costo_ma@#,###,##0.00}</td>
+		<td>${fld:opm_estatus}</td>
+		<td align="center">${fld:opm_fecha_registro@dd-MM-yyyy}</td>
+	</tr>
+	</rows-smnordenproduccionmateriales>
+
+</table>
+<table class="datagrid" width="600px">
+
+	<tr>
+		<th colspan="9" style="font-weight:bold;font-size:10pt;">
+			${lbl:b_order_production_equipament}
+		</th>
+	</tr>
+
+	<tr>
+		<th width="11%">${lbl:b_order_production_equipament}</th>
+		<th width="11%">${lbl:b_center_production}</th>
+		<th width="11%">${lbl:b_production_line}</th>
+		<th width="11%">${lbl:b_active_fij}</th>
+		<th width="11%">${lbl:b_use_time}</th>
+		<th width="11%">${lbl:b_unidad_medida}</th>
+		<th width="11%">${lbl:b_rol}</th>
+		<th width="11%">${lbl:b_status}</th>
+		<th width="11%">${lbl:b_store_date}</th>
+	</tr>
+
+	<rows-smnordenproduccionequipos>
+	<tr>
+		<td align="center">${fld:smn_orden_produccion_equipos_id}</td>
+		<td>${fld:smn_centro_produccion_id}</td>
+		<td>${fld:smn_linea_produccion_id}</td>
+		<td>${fld:smn_activo_rf}</td>
+		<td align="center">${fld:ope_horas_uso}</td>
+		<td>${fld:smn_unidad_medida_rf}</td>
+		<td>${fld:smn_rol_id}</td>
+		<td>${fld:ope_estatus}</td>
+		<td align="center">${fld:ope_fecha_registro@dd-MM-yyyy}</td>
+	</tr>
+	</rows-smnordenproduccionequipos>
+
+</table>
+<table class="datagrid" width="600px">
+
+	<tr>
+		<th colspan="11" style="font-weight:bold;font-size:10pt;">
+			${lbl:b_order_production_activity}
+		</th>
+	</tr>
+
+	<tr>
+		<th width="9%">${lbl:b_order_production_activity}</th>
+		<th width="9%">${lbl:b_active_fij}</th>
+		<th width="9%">${lbl:b_center_production}</th>
+		<th width="9%">${lbl:b_production_line}</th>
+		<th width="9%">${lbl:b_functions}</th>
+		<th width="9%">${lbl:b_hora_inicial}</th>
+		<th width="9%">${lbl:b_hora_final}</th>
+		<th width="9%">${lbl:b_horas}</th>
+		<th width="9%">${lbl:b_unidad_medida}</th>
+		<th width="9%">${lbl:b_status}</th>
+		<th width="9%">${lbl:b_store_date}</th>
+	</tr>
+
+	<rows-smnordenproduccionactividad>
+	<tr>
+		<td align="center">${fld:smn_orden_produccion_actividad_id}</td>
+		<td>${fld:smn_activo_rf}</td>
+		<td>${fld:smn_centro_produccion_id}</td>
+		<td>${fld:smn_linea_produccion_id}</td>
+		<td>${fld:smn_funciones_id}</td>
+		<td align="left">${fld:opa_hora_inicial}</td>
+		<td align="left">${fld:opa_hora_final}</td>
+		<td align="left">${fld:opa_horas}</td>
+		<td>${fld:smn_unidad_medida_rf}</td>
+		<td>${fld:opa_estatus}</td>
+		<td align="center">${fld:opa_fecha_registro@dd-MM-yyyy}</td>
+	</tr>
+	</rows-smnordenproduccionactividad>
+
+</table> -->
+
+	<br>
+	<div  align="center">
+		<input id="salir" type="button" value="${lbl:s_exit}" onclick="parent.closeDialog()" class="button">
+	</div>
+
+</body>
+
+</html>

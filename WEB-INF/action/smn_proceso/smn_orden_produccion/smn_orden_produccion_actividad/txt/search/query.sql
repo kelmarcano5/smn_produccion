@@ -1,0 +1,40 @@
+select
+		smn_produccion.smn_orden_produccion_actividad.smn_orden_produccion_actividad_id,
+	smn_produccion.smn_orden_produccion.smn_orden_produccion_id,
+	smn_produccion.smn_orden_produccion.opr_descripcion as opr_descripcion_pl0,
+select
+		smn_produccion.smn_orden_produccion_actividad.smn_orden_produccion_actividad_id,
+select
+		smn_produccion.smn_orden_produccion_actividad.smn_orden_produccion_actividad_id,
+select
+		smn_produccion.smn_orden_produccion_actividad.smn_orden_produccion_actividad_id,
+select
+		smn_produccion.smn_orden_produccion_actividad.smn_orden_produccion_actividad_id,
+select
+		smn_produccion.smn_orden_produccion_actividad.smn_orden_produccion_actividad_id,
+select
+		smn_produccion.smn_orden_produccion_actividad.smn_orden_produccion_actividad_id,
+	case
+	when smn_produccion.smn_orden_produccion_actividad.opa_estatus='GE' then '${lbl:b_generada}'
+	when smn_produccion.smn_orden_produccion_actividad.opa_estatus='DE' then '${lbl:b_despachada}'
+	when smn_produccion.smn_orden_produccion_actividad.opa_estatus='RE' then '${lbl:b_rechazada}'
+	when smn_produccion.smn_orden_produccion_actividad.opa_estatus='PD' then '${lbl:b_parcialmente_despachada}'
+	when smn_produccion.smn_orden_produccion_actividad.opa_estatus='CE' then '${lbl:b_cerrada}'
+	end as opa_estatus_combo,
+	smn_produccion.smn_orden_produccion_actividad.smn_orden_produccion_id,
+	smn_produccion.smn_orden_produccion_actividad.smn_activo_rf,
+	smn_produccion.smn_orden_produccion_actividad.smn_centro_produccion_id,
+	smn_produccion.smn_orden_produccion_actividad.smn_linea_produccion_id,
+	smn_produccion.smn_orden_produccion_actividad.smn_funciones_id,
+	smn_produccion.smn_orden_produccion_actividad.opa_hora_inicial,
+	smn_produccion.smn_orden_produccion_actividad.opa_hora_final,
+	smn_produccion.smn_orden_produccion_actividad.opa_horas,
+	smn_produccion.smn_orden_produccion_actividad.smn_unidad_medida_rf,
+	smn_produccion.smn_orden_produccion_actividad.opa_estatus,
+	smn_produccion.smn_orden_produccion_actividad.opa_fecha_registro
+	
+from
+	smn_produccion.smn_orden_produccion,
+	smn_produccion.smn_orden_produccion_actividad
+where
+	smn_produccion.smn_orden_produccion.smn_orden_produccion_id=smn_produccion.smn_orden_produccion_actividad.smn_orden_produccion_id

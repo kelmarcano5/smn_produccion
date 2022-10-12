@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator onerror='/action/error/validation/ajax'>
+	<parameter id='tdc_codigo' type='varchar' required='true' label='${lbl:b_code}' maxlen='31'/>
+	<parameter id='tdc_nombre' type='varchar' required='true' label='${lbl:b_description}' maxlen='200'/>
+	<parameter id='tdc_tipo_produccion' type='varchar' required='true' label='${lbl:b_production_type}' maxlen='2'/>
+	<parameter id='id' type='integer' required='true' label='${lbl:b_type_document}' maxlen='10'/>
+
+
+</validator>

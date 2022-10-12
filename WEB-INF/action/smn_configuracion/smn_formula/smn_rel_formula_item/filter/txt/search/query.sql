@@ -1,0 +1,16 @@
+select
+		smn_produccion.smn_rel_formula_item.smn_rel_formula_item_id,
+	smn_produccion.smn_formula.smn_formula_id,
+	smn_produccion.smn_formula.for_idioma as for_idioma_pl0,
+select
+		smn_produccion.smn_rel_formula_item.smn_rel_formula_item_id,
+select
+		smn_produccion.smn_rel_formula_item.smn_rel_formula_item_id,
+	smn_produccion.smn_rel_formula_item.smn_formula_id,
+	smn_produccion.smn_rel_formula_item.smn_nivel_estructura_id
+	
+from
+	smn_produccion.smn_formula,
+	smn_produccion.smn_rel_formula_item
+where
+	smn_produccion.smn_formula.smn_formula_id=smn_produccion.smn_rel_formula_item.smn_formula_id

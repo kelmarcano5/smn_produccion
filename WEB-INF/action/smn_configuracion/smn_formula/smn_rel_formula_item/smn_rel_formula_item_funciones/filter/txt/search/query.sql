@@ -1,0 +1,14 @@
+select
+		smn_produccion.smn_rel_formula_item_funciones.smn_rel_formula_item_funciones_id,
+select
+		smn_produccion.smn_rel_formula_item_funciones.smn_rel_formula_item_funciones_id,
+select
+		smn_produccion.smn_rel_formula_item_funciones.smn_rel_formula_item_funciones_id,
+	smn_produccion.smn_rel_formula_item_funciones.smn_rel_formula_item_id,
+	smn_produccion.smn_rel_formula_item_funciones.smn_funciones_id,
+	smn_produccion.smn_rel_formula_item_funciones.rfe_cantidad,
+	smn_produccion.smn_rel_formula_item_funciones.smn_unidad_medida_rf,
+	smn_produccion.smn_rel_formula_item_funciones.rff_fecha_registro
+	
+from
+	smn_produccion.smn_rel_formula_item_funciones

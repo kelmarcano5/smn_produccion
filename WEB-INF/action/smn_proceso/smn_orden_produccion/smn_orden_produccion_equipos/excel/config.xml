@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config nodb="true">
+
+	<summary>
+		Exportar documento excel directo al browser
+	</summary>
+
+	<log>false</log>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>false</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id="query-smnordenproduccionequipos.sql" source="session" scope="transaction" />
+	</transaction>
+
+	<output>
+		<classname>domain.ExcelReportOutput</classname>
+	</output>
+	
+	<excel-logo scale="60" url="/images/logo-simone-pdf.png"/>
+	<title cellPosY="1" cellPosX="3" cellStep="0" name="${lbl:b_order_production_equipament}"/>
+	
+	<excel 
+		recordset='query-smnordenproduccionequipos.sql' 
+		sheetname='${lbl:b_order_production_equipament}' 
+		filename='${lbl:b_order_production_equipament}.xls' 
+		date-format='dd-MM-yyyy'
+		header-background='true'>
+		<col id='smn_orden_produccion_id_combo' label='${lbl:b_order_production}' />
+		<col id='smn_centro_produccion_id_combo' label='${lbl:b_center_production}' />
+		<col id='smn_linea_produccion_id_combo' label='${lbl:b_production_line}' />
+		<col id='smn_activo_rf_combo' label='${lbl:b_active_fij}' />
+		<col id='ope_estatus_combo' label='${lbl:b_status}' />
+		<col id='ope_fecha_registro' label='${lbl:b_store_date}' />
+
+	</excel>
+
+</config>

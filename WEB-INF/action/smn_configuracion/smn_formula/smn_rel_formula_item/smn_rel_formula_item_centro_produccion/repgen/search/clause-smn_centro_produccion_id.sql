@@ -1,0 +1,2 @@
+ and
+ 	smn_produccion.smn_rel_formula_item_centro_produccion.smn_centro_produccion_id=${fld:smn_centro_produccion_id}

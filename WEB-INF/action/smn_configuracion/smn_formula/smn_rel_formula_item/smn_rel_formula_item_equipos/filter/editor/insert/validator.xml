@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator onerror='/action/error/validation/ajax'>
+	<parameter id='smn_rel_formula_item_id' type='integer' required='true' label='${lbl:b_relationship_formula_item}' maxlen='10'/>
+	<parameter id='smn_activo_id' type='integer' required='true' label='${lbl:b_active_fij}' maxlen='10'/>
+	<parameter id='rfe_cantidad' type='double' required='true' label='${lbl:b_quantity}' maxlen='10'/>
+	<parameter id='smn_unidad_medida_rf' type='integer' required='true' label='${lbl:b_unidad_medida}' maxlen='10'/>
+
+
+</validator>

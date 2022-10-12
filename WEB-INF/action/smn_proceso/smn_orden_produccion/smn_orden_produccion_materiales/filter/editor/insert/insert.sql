@@ -1,0 +1,34 @@
+INSERT INTO smn_produccion.smn_orden_produccion_materiales
+(
+	smn_orden_produccion_materiales_id,
+	smn_orden_produccion_id,
+	smn_centro_produccion_id,
+	smn_linea_produccion_id,
+	smn_item_rf,
+	opm_cantidad_solicitada,
+	opm_cantidad_despachada,
+	opm_costo_ml,
+	opm_costo_ma,
+	opm_estatus,
+	opm_idioma,
+	opm_usuario,
+	opm_fecha_registro,
+	opm_hora
+)
+VALUES
+(
+	${seq:currval@smn_produccion.seq_smn_orden_produccion_materiales},
+	${fld:smn_orden_produccion_id},
+	${fld:smn_centro_produccion_id},
+	${fld:smn_linea_produccion_id},
+	${fld:smn_item_rf},
+	${fld:opm_cantidad_solicitada},
+	${fld:opm_cantidad_despachada},
+	${fld:opm_costo_ml},
+	${fld:opm_costo_ma},
+	${fld:opm_estatus},
+	'${def:locale}',
+	'${def:user}',
+	{d '${def:date}'},
+	'${def:time}'
+)

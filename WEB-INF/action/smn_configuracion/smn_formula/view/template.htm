@@ -1,0 +1,49 @@
+<!--data grid-->
+<table class="datagrid" style="width:95%;">
+
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='25%'/>
+	<col width='25%'/>
+	<col width='25%'/>
+	<col width='25%'/>
+	<col width='3%'/>
+
+	<!--toolbar-->
+	<tr>
+		<th colspan="8" id="encabezado_tabla">
+			${req:controls} 
+		</th>
+	</tr>
+
+	<!--encabezados-->
+	<tr>
+		<th></th>
+		<th></th>
+		<th></th>
+		<th class='sortable' onclick='sortBy("for_codigo","query-smnformula.sql")'>${lbl:b_code}</th>
+		<th class='sortable' onclick='sortBy("for_descripcion","query-smnformula.sql")'>${lbl:b_description}</th>
+		<th class='sortable' onclick='sortBy("for_estatus_combo","query-smnformula.sql")'>${lbl:b_status}</th>
+		<th class='sortable' onclick='sortBy("for_fecha_registro","query-smnformula.sql")'>${lbl:b_store_date}</th>
+		<th>FI</th>
+		
+	</tr>
+
+	<!--data-->
+	<rows>
+	<tr>
+		<td><img src="${def:context}/images/search.png"  onclick="getDetail('${fld:smn_formula_id}')" title="${lbl:b_view_detail}"></td>
+		<td><img src="${def:context}/images/delete.png"  onclick="deleteRecord('${fld:smn_formula_id}')" title="${lbl:b_delete_button}"></td>
+		<td><img src="${def:context}/images/edit.png"  onclick="showEditor('${fld:smn_formula_id}')" title="${lbl:b_edit_button}"></td>
+		<td>${fld:for_codigo}</td>
+		<td>${fld:for_descripcion}</td>
+		<td>${fld:for_estatus_combo}</td>
+		<td>${fld:for_fecha_registro@dd-MM-yyyy}</td>
+		<td><img src="${def:context}/images/icongrid/Comprobante-diario.png" onclick="formulaitem('${fld:smn_formula_id}','${fld:for_descripcion}')" title="Formula Item"></td>
+		
+
+	</tr>
+	</rows>
+
+</table>

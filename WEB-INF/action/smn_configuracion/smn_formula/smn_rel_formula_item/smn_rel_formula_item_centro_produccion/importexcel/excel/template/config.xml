@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config nodb="true">
+
+	<summary>
+		Exportar documento excel directo al browser
+	</summary>
+
+	<log>false</log>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>false</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id="query-smnrelformulaitemcentroproduccion.sql" source="session" scope="transaction" />
+		
+	</transaction>
+
+	<output>
+		<classname>dinamica.GenericExcelOutput</classname>
+	</output>
+		
+	<excel 
+		filename='${lbl:b_relationship_formula_item_center_production}.xls' >
+		
+	<sheet recordset="query-table_stuck}.sql" sheetname="${lbl:b_relationship_formula_item_center_production}">
+				<col id='smn_rel_formula_item_id_combo' label='${lbl:b_relationship_formula_item}' />
+		<col id='smn_centro_produccion_id_combo' label='${lbl:b_center_production}' />
+		<col id='smn_linea_produccion_id_combo' label='${lbl:b_production_line}' />
+		<col id='rfc_fecha_registro' label='${lbl:b_store_date}' />
+
+	</sheet>
+	
+	</excel>
+
+</config>

@@ -1,0 +1,32 @@
+INSERT INTO smn_produccion.smn_orden_produccion_equipos
+(
+	smn_orden_produccion_equipos_id,
+	smn_orden_produccion_id,
+	smn_centro_produccion_id,
+	smn_linea_produccion_id,
+	smn_activo_rf,
+	ope_horas_uso,
+	smn_unidad_medida_rf,
+	smn_rol_id,
+	ope_estatus,
+	ope_idioma,
+	ope_usuario,
+	ope_fecha_registro,
+	ope_hora
+)
+VALUES
+(
+	${seq:currval@smn_produccion.seq_smn_orden_produccion_equipos},
+	${fld:smn_orden_produccion_id},
+	${fld:smn_centro_produccion_id},
+	${fld:smn_linea_produccion_id},
+	${fld:smn_activo_rf},
+	${fld:ope_horas_uso},
+	${fld:smn_unidad_medida_rf},
+	${fld:smn_rol_id},
+	${fld:ope_estatus},
+	'${def:locale}',
+	'${def:user}',
+	{d '${def:date}'},
+	'${def:time}'
+)

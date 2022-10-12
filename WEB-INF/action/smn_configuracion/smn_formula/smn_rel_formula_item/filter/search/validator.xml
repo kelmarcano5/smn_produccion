@@ -1,0 +1,6 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator id='filter.params' onerror='/action/error/validation/ajax'>
+	<parameter id='smn_formula_id' type='integer' required='false' label='${lbl:b_formula}' maxlen='10'/>
+	<parameter id='smn_nivel_estructura_id' type='integer' required='false' label='${lbl:b_level_structure}' maxlen='10'/>
+	<parameter id="id2" type="integer" required="false" label="ID2" maxlen="50" />
+</validator>

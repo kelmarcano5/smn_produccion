@@ -1,0 +1,18 @@
+select
+	smn_produccion.smn_rel_formula_item_equipos.smn_rel_formula_item_id,
+	smn_produccion.smn_rel_formula_item_equipos.smn_activo_id,
+	smn_produccion.smn_rel_formula_item_equipos.rfe_cantidad,
+	smn_produccion.smn_rel_formula_item_equipos.smn_unidad_medida_rf,
+	smn_produccion.smn_rel_formula_item_equipos.rfe_fecha_registro,
+		smn_produccion.smn_rel_formula_item_equipos.smn_rel_formula_item_equipos_id
+	
+from
+	smn_produccion.smn_rel_formula_item_equipos
+	inner join smn_produccion.smn_rel_formula_item on smn_produccion.smn_rel_formula_item.smn_rel_formula_item_id = smn_produccion.smn_rel_formula_item_equipos.smn_rel_formula_item_id
+
+where
+	smn_rel_formula_item_equipos_id is not null
+	and	smn_produccion.smn_rel_formula_item_equipos.smn_rel_formula_item_id=${fld:id2}
+	${filter}
+order by
+		smn_rel_formula_item_equipos_id

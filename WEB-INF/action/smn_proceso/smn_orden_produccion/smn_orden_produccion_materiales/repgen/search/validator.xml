@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator id='repgen.filter' onerror='/action/error/validation/ajax'>
+
+	<parameter id='fdesde' type='date' required='false' label='Fecha desde'/>
+	<parameter id='fhasta' type='date' required='false' label='Fecha hasta'/>
+	
+	<parameter id='smn_orden_produccion_id_name' type='varchar' required='false' label='${lbl:b_order_production}'/>
+	<parameter id='smn_orden_produccion_id' type='integer' required='false' label='${lbl:b_order_production}' maxlen='10'/>
+	<parameter id='smn_centro_produccion_id' type='integer' required='false' label='${lbl:b_center_production}' maxlen='10'/>
+	<parameter id='smn_linea_produccion_id' type='integer' required='false' label='${lbl:b_production_line}' maxlen='10'/>
+	<parameter id='smn_item_rf' type='integer' required='false' label='${lbl:b_item}' maxlen='10'/>
+	<parameter id='opm_cantidad_solicitada' type='double' required='false' label='${lbl:b_cantidad_solicitada}' maxlen='10'/>
+	<parameter id='opm_cantidad_despachada' type='double' required='false' label='${lbl:b_cantidad_despachada}' maxlen='10'/>
+	<parameter id='opm_costo_ml' type='double' required='false' label='${lbl:b_costo_ml}' maxlen='10'/>
+	<parameter id='opm_costo_ma' type='double' required='false' label='${lbl:b_costo_ma}' maxlen='10'/>
+	<parameter id='opm_estatus' type='varchar' required='false' label='${lbl:b_status}' maxlen='2'/>
+
+	<custom-validator
+		classname='dinamica.validators.SQLPatternTransformer'
+		parameter='smn_orden_produccion_id_name'
+		rule='contains' />
+
+	<custom-validator
+		classname='dinamica.validators.SQLPatternTransformer'
+		parameter='opm_estatus'
+		rule='contains' />
+
+
+
+	<custom-validator
+			classname='dinamica.validators.ArrayNotEmptyValidator'
+			on-error-label='Seleccione al menos un campo para la generación del reporte.'
+			parameter-name='field_id' 
+			id='field_id' />
+
+	<custom-validator 
+			classname='dinamica.validators.ArrayToRecordset'
+			paramName='field_id' 
+			recordsetId='fields' 
+			colName='field_id' 
+			colType='integer' />
+				
+</validator>

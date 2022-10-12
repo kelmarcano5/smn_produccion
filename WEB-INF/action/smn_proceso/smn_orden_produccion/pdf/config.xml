@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config nodb="true">
+
+	<summary>
+		Generar reporte generico PDF
+	</summary>
+
+	<log>false</log>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>false</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id="query-smnordenproduccion.sql" source="session" scope="transaction" />
+	</transaction>
+
+	<output>
+		<classname>dinamica.PDFGenericReport</classname>
+	</output>
+	
+	<pdf-title>${lbl:b_order_production}</pdf-title>
+	<pdf-logo url='/images/logo-simone-pdf.png' scale='100' />
+	<pdf-file-name>${lbl:b_order_production}.pdf</pdf-file-name>
+
+	<pdf-report 
+		pageSize="letter" 
+		rotate="false"
+		footer="false" 
+		header="true">
+		<record recordset='query-smnordenproduccion.sql' width='100' spacingBefore='40'>
+			<col name='smn_modulo_rf' title='${lbl:b_module}' width='7' align='left' format='######' />
+			<col name='smn_documento_origen_rf' title='${lbl:b_origen_documents}' width='7' align='left' format='######' />
+			<col name='opr_numero_documento_origen' title='${lbl:b_number_document_origin}' width='7' align='left' format='######' />
+			<col name='smn_documento_id' title='${lbl:b_documents}' width='7' align='left' format='######' />
+			<col name='opr_numero_documento' title='${lbl:b_number_document}' width='7' align='left' format='######' />
+			<col name='opr_descripcion' title='${lbl:b_transaction_description}' width='7' align='left' />
+			<col name='smn_entidad_rf' title='${lbl:b_entities}' width='7' align='left' format='######' />
+			<col name='smn_item_rf' title='${lbl:b_item}' width='7' align='left' format='######' />
+			<col name='opr_cantidad' title='${lbl:b_quantity}' width='7' align='left' format='#,###,##0.00' />
+			<col name='opr_fecha_despacho' title='${lbl:b_fecha_despacho}' width='7' align='left' format='dd-MM-yyyy' />
+			<col name='smn_rol_id' title='${lbl:b_rol}' width='7' align='left' format='######' />
+			<col name='opr_estatus' title='${lbl:b_status}' width='7' align='left' />
+			<col name='opr_fecha_registro' title='${lbl:b_store_date}' width='7' align='left' format='dd-MM-yyyy' />
+
+		</record>
+
+	</pdf-report>
+</config>

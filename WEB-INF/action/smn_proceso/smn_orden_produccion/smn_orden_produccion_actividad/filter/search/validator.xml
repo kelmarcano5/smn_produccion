@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator id='filter.params' onerror='/action/error/validation/ajax'>
+	<parameter id='smn_orden_produccion_id_name' type='varchar' required='false' label='${lbl:b_order_production}'/>
+	<parameter id='smn_orden_produccion_id' type='integer' required='false' label='${lbl:b_order_production}' maxlen='10'/>
+	<parameter id='smn_activo_rf' type='integer' required='false' label='${lbl:b_active_fij}' maxlen='10'/>
+	<parameter id='smn_centro_produccion_id' type='integer' required='false' label='${lbl:b_center_production}' maxlen='10'/>
+	<parameter id='smn_linea_produccion_id' type='integer' required='false' label='${lbl:b_production_line}' maxlen='10'/>
+	<parameter id='opa_estatus' type='varchar' required='false' label='${lbl:b_status}' maxlen='2'/>
+	<custom-validator classname='dinamica.validators.SQLPatternTransformer' parameter='opa_estatus' rule='like' />
+	<parameter id='opa_fecha_registro_ini' type='date' required='false' label='${lbl:b_store_date}' maxlen='10'/>
+	<custom-validator classname='dinamica.validators.DateRangeValidator' on-error-label='[${lbl:b_store_date} mayor o igual que] no puede ser mayor que [${lbl:b_store_date} menor o igual que].' date1='opa_fecha_registro_ini' date2='opa_fecha_registro_fin' id='opa_fecha_registro_ini' />
+	<parameter id='opa_fecha_registro_fin' type='date' required='false' label='${lbl:b_store_date}' maxlen='10'/>
+	 <parameter id="id2" type="integer" required="false" label="ID2" maxlen="50" />
+</validator>

@@ -1,0 +1,88 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config nodb="true">
+
+	<summary>
+		Generar reporte generico PDF
+	</summary>
+
+	<log>false</log>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>false</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id="query.sql" source="session" scope="transaction" />
+		<recordset id='detail-smnordenproduccionmateriales.sql' source='session' scope='transaction' />
+		<recordset id='detail-smnordenproduccionequipos.sql' source='session' scope='transaction' />
+		<recordset id='detail-smnordenproduccionactividad.sql' source='session' scope='transaction' />
+
+	</transaction>
+
+	<output>
+		<classname>dinamica.PDFGenericReport</classname>
+	</output>
+	
+	<pdf-title>${lbl:b_order_production}</pdf-title>
+	<pdf-logo url='/images/logo-simone-pdf.png' scale='100' />
+	<pdf-file-name>${lbl:b_order_production}.pdf</pdf-file-name>
+
+	<pdf-report pageSize="letter" rotate="false" footer="true" header="true">
+		<record recordset='query.sql' title='${lbl:b_order_production}' width='60' spacingBefore='40'>
+			<col name='smn_modulo_rf' title='${lbl:b_module}' align='left' format='######' />
+			<col name='smn_documento_origen_rf' title='${lbl:b_origen_documents}' align='left' format='######' />
+			<col name='opr_numero_documento_origen' title='${lbl:b_number_document_origin}' align='left' format='######' />
+			<col name='smn_usuario_solicitante_rf' title='${lbl:b_users}' align='left' format='######' />
+			<col name='smn_documento_id' title='${lbl:b_documents}' align='left' format='######' />
+			<col name='opr_numero_documento' title='${lbl:b_number_document}' align='left' format='######' />
+			<col name='opr_descripcion' title='${lbl:b_transaction_description}' align='left' />
+			<col name='smn_entidad_rf' title='${lbl:b_entities}' align='left' format='######' />
+			<col name='smn_sucursal_rf' title='${lbl:b_subsidiaries}' align='left' format='######' />
+			<col name='smn_item_rf' title='${lbl:b_item}' align='left' format='######' />
+			<col name='opr_cantidad' title='${lbl:b_quantity}' align='left' format='#,###,##0.00' />
+			<col name='opr_fecha_solicitud' title='${lbl:b_fecha_solicitud}' align='left' format='dd-MM-yyyy' />
+			<col name='opr_fecha_despacho' title='${lbl:b_fecha_despacho}' align='left' format='dd-MM-yyyy' />
+			<col name='smn_rol_id' title='${lbl:b_rol}' align='left' format='######' />
+			<col name='opr_estatus' title='${lbl:b_status}' align='left' />
+			<col name='opr_fecha_registro' title='${lbl:b_store_date}' align='left' format='dd-MM-yyyy' />
+		</record>
+		<table recordset='detail-smnordenproduccionmateriales.sql' width='100' spacingBefore='40'>
+			<col name='smn_orden_produccion_materiales_id' title='${lbl:b_order_production_materials}' width='10' align='left' format='######' />
+			<col name='smn_centro_produccion_id' title='${lbl:b_left_production}' width='10' align='left' format='######' />
+			<col name='smn_linea_produccion_id' title='${lbl:b_production_line}' width='10' align='left' format='######' />
+			<col name='smn_item_rf' title='${lbl:b_item}' width='10' align='left' format='######' />
+			<col name='opm_cantidad_solicitada' title='${lbl:b_cantidad_solicitada}' width='10' align='left' format='#,###,##0.00' />
+			<col name='opm_cantidad_despachada' title='${lbl:b_cantidad_despachada}' width='10' align='left' format='#,###,##0.00' />
+			<col name='opm_costo_ml' title='${lbl:b_costo_ml}' width='10' align='left' format='#,###,##0.00' />
+			<col name='opm_costo_ma' title='${lbl:b_costo_ma}' width='10' align='left' format='#,###,##0.00' />
+			<col name='opm_estatus' title='${lbl:b_status}' width='10' align='left' />
+			<col name='opm_fecha_registro' title='${lbl:b_store_date}' width='10' align='left' format='dd-MM-yyyy' />
+		</table>
+		<table recordset='detail-smnordenproduccionequipos.sql' width='100' spacingBefore='40'>
+			<col name='smn_orden_produccion_equipos_id' title='${lbl:b_order_production_equipament}' width='11' align='left' format='######' />
+			<col name='smn_centro_produccion_id' title='${lbl:b_left_production}' width='11' align='left' format='######' />
+			<col name='smn_linea_produccion_id' title='${lbl:b_production_line}' width='11' align='left' format='######' />
+			<col name='smn_activo_rf' title='${lbl:b_active_fij}' width='11' align='left' format='######' />
+			<col name='ope_horas_uso' title='${lbl:b_use_time}' width='11' align='left' format='######' />
+			<col name='smn_unidad_medida_rf' title='${lbl:b_unidad_medida}' width='11' align='left' format='######' />
+			<col name='smn_rol_id' title='${lbl:b_rol}' width='11' align='left' format='######' />
+			<col name='ope_estatus' title='${lbl:b_status}' width='11' align='left' />
+			<col name='ope_fecha_registro' title='${lbl:b_store_date}' width='11' align='left' format='dd-MM-yyyy' />
+		</table>
+		<table recordset='detail-smnordenproduccionactividad.sql' width='100' spacingBefore='40'>
+			<col name='smn_orden_produccion_actividad_id' title='${lbl:b_order_production_activity}' width='9' align='left' format='######' />
+			<col name='smn_activo_rf' title='${lbl:b_active_fij}' width='9' align='left' format='######' />
+			<col name='smn_centro_produccion_id' title='${lbl:b_left_production}' width='9' align='left' format='######' />
+			<col name='smn_linea_produccion_id' title='${lbl:b_production_line}' width='9' align='left' format='######' />
+			<col name='smn_funciones_id' title='${lbl:b_functions}' width='9' align='left' format='######' />
+			<col name='opa_hora_inicial' title='${lbl:b_hora_inicial}' width='9' align='left' />
+			<col name='opa_hora_final' title='${lbl:b_hora_final}' width='9' align='left' />
+			<col name='opa_horas' title='${lbl:b_horas}' width='9' align='left' />
+			<col name='smn_unidad_medida_rf' title='${lbl:b_unidad_medida}' width='9' align='left' format='######' />
+			<col name='opa_estatus' title='${lbl:b_status}' width='9' align='left' />
+			<col name='opa_fecha_registro' title='${lbl:b_store_date}' width='9' align='left' format='dd-MM-yyyy' />
+		</table>
+
+
+	</pdf-report>
+</config>

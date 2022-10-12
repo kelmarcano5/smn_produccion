@@ -1,0 +1,50 @@
+<!--data grid-->
+<table class="datagrid" style="width:95%;">
+
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='50%'/>
+	<col width='50%'/>
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='3%'/>
+
+
+	<!--toolbar-->
+	<tr>
+		<th colspan="9" id="encabezado_tabla">
+			${req:controls} 
+		</th>
+	</tr>
+
+	<!--encabezados-->
+	<tr>
+		<th></th>
+		<th></th>
+		<th></th>
+		<th class='sortable' onclick='sortBy("smn_formula_id_combo","query-smnrelformulaitem.sql")'>${lbl:b_formula}</th>
+		<th class='sortable' onclick='sortBy("smn_nivel_estructura_id_combo","query-smnrelformulaitem.sql")'>${lbl:b_level_structure}</th>
+		<th>FCP</th>
+		<th>FEQ</th>
+		<th>FFC</th>
+		<th>FMT</th>
+	</tr>
+
+	<!--data-->
+	<rows>
+	<tr>
+		<td><img src="${def:context}/images/search.png"  onclick="getDetail('${fld:smn_rel_formula_item_id}')" title="${lbl:b_view_detail}"></td>
+		<td><img src="${def:context}/images/delete.png"  onclick="deleteRecord('${fld:smn_rel_formula_item_id}')" title="${lbl:b_delete_button}"></td>
+		<td><img src="${def:context}/images/edit.png"  onclick="showEditor('${fld:smn_rel_formula_item_id}')" title="${lbl:b_edit_button}"></td>
+		<td>${fld:smn_formula_id_combo}</td>
+		<td>${fld:smn_nivel_estructura_id_combo}</td>
+		<td><img src="${def:context}/images/icongrid/Comprobante-diario.png" onclick="formulaitemcp('${fld:smn_rel_formula_item_id}')" title="Formula Item Centro Produccion"></td>
+		<td><img src="${def:context}/images/icongrid/Comprobante-diario.png" onclick="formulaitemeq('${fld:smn_rel_formula_item_id}')" title="Formula Item Equipos"></td>
+		<td><img src="${def:context}/images/icongrid/Comprobante-diario.png" onclick="formulaitemfc('${fld:smn_rel_formula_item_id}')" title="Formula Item Funciones"></td>
+		<td><img src="${def:context}/images/icongrid/Comprobante-diario.png" onclick="forumlaitemmt('${fld:smn_rel_formula_item_id}')" title="Formula Item Materiales"></td>
+	</tr>
+	</rows>
+
+</table>

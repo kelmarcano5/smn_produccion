@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator onerror='/action/error/validation/ajax'>
+	<parameter id='smn_orden_produccion_id_name' type='varchar' required='true' label='${lbl:b_order_production}'/>
+	<parameter id='smn_orden_produccion_id' type='integer' required='false' label='${lbl:b_order_production}' maxlen='10'/>
+	<parameter id='smn_activo_rf' type='integer' required='false' label='${lbl:b_active_fij}' maxlen='10'/>
+	<parameter id='smn_centro_produccion_id' type='integer' required='true' label='${lbl:b_center_production}' maxlen='10'/>
+	<parameter id='smn_linea_produccion_id' type='integer' required='true' label='${lbl:b_production_line}' maxlen='10'/>
+	<parameter id='smn_funciones_id' type='integer' required='true' label='${lbl:b_functions}' maxlen='10'/>
+	<parameter id='opa_hora_inicial' type='varchar' required='false' label='${lbl:b_hora_inicial}' maxlen='8'/>
+	<parameter id='opa_hora_final' type='varchar' required='false' label='${lbl:b_hora_final}' maxlen='8'/>
+	<parameter id='opa_horas' type='varchar' required='false' label='${lbl:b_horas}' maxlen='8'/>
+	<parameter id='smn_unidad_medida_rf' type='integer' required='false' label='${lbl:b_unidad_medida}' maxlen='10'/>
+	<parameter id='opa_estatus' type='varchar' required='true' label='${lbl:b_status}' maxlen='2'/>
+
+
+</validator>

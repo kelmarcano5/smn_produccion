@@ -1,0 +1,61 @@
+<!--data grid-->
+<table class="datagrid" style="width:95%;">
+
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='10%'/>
+	<col width='10%'/>
+	<col width='10%'/>
+	<col width='10%'/>
+	<col width='10%'/>
+	<col width='10%'/>
+	<col width='10%'/>
+	<col width='10%'/>
+	<col width='10%'/>
+
+
+	<!--toolbar-->
+	<tr>
+		<th colspan="12" id="encabezado_tabla">
+			${req:controls} 
+		</th>
+	</tr>
+
+	<!--encabezados-->
+	<tr>
+		<th></th>
+		<th></th>
+		<th></th>
+		<th class='sortable' onclick="sortBy('smn_tipo_documento_id','query-smndocumento.sql')" >${lbl:b_types_documents}</th>
+		<th class='sortable' onclick="sortBy('doc_codigo','query-smndocumento.sql')" >${lbl:b_code}</th>
+		<th class='sortable' onclick="sortBy('doc_nombre','query-smndocumento.sql')" >${lbl:b_name}</th>
+		<th class='sortable' onclick="sortBy('smn_documento_general_rf','query-smndocumento.sql')" >${lbl:b_general_documents}</th>
+		<th class='sortable' onclick="sortBy('smn_modulo_origen','query-smndocumento.sql')" >${lbl:b_module}</th>
+		<th class='sortable' onclick="sortBy('doc_tipo_movimiento','query-smndocumento.sql')" >${lbl:b_type_movement}</th>
+		<th class='sortable' onclick="sortBy('doc_tipo_orden','query-smndocumento.sql')" >${lbl:b_type_order}</th>
+		<th class='sortable' onclick="sortBy('doc_estatus','query-smndocumento.sql')" >${lbl:b_status}</th>
+		<th class='sortable' onclick="sortBy('doc_fecha_registro','query-smndocumento.sql')" >${lbl:b_store_date}</th>
+
+	</tr>
+
+	<!--data-->
+	<rows>
+	<tr>
+		<td><img src="${def:context}/images/search.png"  onclick="getDetail('${fld:smn_documento_id}')" title="${lbl:b_view_detail}"></td>
+		<td><img src="${def:context}/images/delete.png"  onclick="deleteRecord('${fld:smn_documento_id}')" title="${lbl:b_delete_button}"></td>
+		<td><img src="${def:context}/images/edit.png"  onclick="showEditor('${fld:smn_documento_id}')" title="${lbl:b_edit_button}"></td>
+		<td align="center">${fld:smn_tipo_documento_id}</td>
+		<td align="center">${fld:doc_codigo}</td>
+		<td align="center">${fld:doc_nombre}</td>
+		<td align="center">${fld:smn_documento_general_rf}</td>
+		<td align="center">${fld:smn_modulo_origen}</td>
+		<td align="left">${fld:doc_tipo_movimiento}</td>
+		<td align="left">${fld:doc_tipo_orden}</td>
+		<td align="left">${fld:doc_estatus}</td>
+		<td align="center">${fld:doc_fecha_registro@dd-MM-yyyy}</td>
+
+	</tr>
+	</rows>
+
+</table>

@@ -1,0 +1,1 @@
+select smn_produccion.smn_formula.smn_formula_id as id, smn_produccion.smn_formula.for_codigo ||' - '|| smn_produccion.smn_formula.for_descripcion as item from smn_produccion.smn_formula ORDER BY smn_produccion.smn_formula.for_descripcion asc

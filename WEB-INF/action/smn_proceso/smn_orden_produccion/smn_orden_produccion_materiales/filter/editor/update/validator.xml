@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator onerror='/action/error/validation/ajax'>
+	<parameter id='smn_orden_produccion_id_name' type='varchar' required='true' label='${lbl:b_order_production}'/>
+	<parameter id='smn_orden_produccion_id' type='integer' required='false' label='${lbl:b_order_production}' maxlen='10'/>
+	<parameter id='smn_centro_produccion_id' type='integer' required='true' label='${lbl:b_center_production}' maxlen='10'/>
+	<parameter id='smn_linea_produccion_id' type='integer' required='true' label='${lbl:b_production_line}' maxlen='10'/>
+	<parameter id='smn_item_rf' type='integer' required='true' label='${lbl:b_item}' maxlen='10'/>
+	<parameter id='opm_cantidad_solicitada' type='double' required='true' label='${lbl:b_cantidad_solicitada}' maxlen='10'/>
+	<parameter id='opm_cantidad_despachada' type='double' required='false' label='${lbl:b_cantidad_despachada}' maxlen='10'/>
+	<parameter id='opm_costo_ml' type='double' required='true' label='${lbl:b_costo_ml}' maxlen='10'/>
+	<parameter id='opm_costo_ma' type='double' required='false' label='${lbl:b_costo_ma}' maxlen='10'/>
+	<parameter id='opm_estatus' type='varchar' required='true' label='${lbl:b_status}' maxlen='2'/>
+	<parameter id='id' type='integer' required='false' label='${lbl:b_order_production_materials}' maxlen='10'/>
+
+
+</validator>

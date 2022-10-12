@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator onerror='/action/error/validation/ajax'>
+	<parameter id='smn_modulo_rf' type='integer' required='true' label='${lbl:b_module}' maxlen='10'/>
+	<parameter id='smn_documento_origen_rf' type='integer' required='true' label='${lbl:b_origen_documents}' maxlen='10'/>
+	<parameter id='opr_numero_documento_origen' type='integer' required='true' label='${lbl:b_number_document_origin}' maxlen='10'/>
+	<parameter id='smn_usuario_solicitante_rf' type='integer' required='true' label='${lbl:b_users}' maxlen='10'/>
+	<parameter id='smn_documento_id' type='integer' required='true' label='${lbl:b_documents}' maxlen='10'/>
+	<parameter id='opr_numero_documento' type='integer' required='true' label='${lbl:b_number_document}' maxlen='10'/>
+	<parameter id='opr_descripcion' type='varchar' required='true' label='${lbl:b_transaction_description}' maxlen='200'/>
+	<parameter id='smn_entidad_rf' type='integer' required='true' label='${lbl:b_entities}' maxlen='10'/>
+	<parameter id='smn_sucursal_rf' type='integer' required='true' label='${lbl:b_subsidiaries}' maxlen='10'/>
+	<parameter id='smn_item_rf' type='integer' required='true' label='${lbl:b_item}' maxlen='10'/>
+	<parameter id='opr_cantidad' type='double' required='true' label='${lbl:b_quantity}' maxlen='10'/>
+	<parameter id='opr_fecha_solicitud' type='date' required='true' label='${lbl:b_fecha_solicitud}' maxlen='10'/>
+	<parameter id='opr_fecha_despacho' type='date' required='false' label='${lbl:b_fecha_despacho}' maxlen='10'/>
+	<parameter id='smn_rol_id' type='integer' required='true' label='${lbl:b_rol}' maxlen='10'/>
+	<parameter id='opr_estatus' type='varchar' required='true' label='${lbl:b_status}' maxlen='2'/>
+
+	<custom-validator
+		classname='dinamica.validators.DuplicatedKeyValidator'
+			on-error-label='${lbl:b_record_not_duplicated}.'
+			sql='buscarDescripcion.sql'
+			id='opr_descripcion'/>
+
+
+</validator>

@@ -1,0 +1,1 @@
+select smn_produccion.smn_orden_produccion.smn_orden_produccion_id as id, smn_produccion.smn_orden_produccion.smn_orden_produccion_id as item  from smn_produccion.smn_orden_produccion

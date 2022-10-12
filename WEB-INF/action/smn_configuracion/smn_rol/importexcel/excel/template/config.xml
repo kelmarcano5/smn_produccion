@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config nodb="true">
+
+	<summary>
+		Exportar documento excel directo al browser
+	</summary>
+
+	<log>false</log>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>false</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id="query-smnrol.sql" source="session" scope="transaction" />
+		
+	</transaction>
+
+	<output>
+		<classname>dinamica.GenericExcelOutput</classname>
+	</output>
+		
+	<excel 
+		filename='${lbl:b_rol}.xls' >
+		
+	<sheet recordset="query-table_stuck}.sql" sheetname="${lbl:b_rol}">
+				<col id='smn_usuario_rf' label='${lbl:b_users}' />
+		<col id='rol_tipo' label='${lbl:b_type}' />
+		<col id='rol_estatus' label='${lbl:b_status}' />
+		<col id='rol_fecha_registro' label='${lbl:b_store_date}' />
+
+	</sheet>
+	
+	</excel>
+
+</config>

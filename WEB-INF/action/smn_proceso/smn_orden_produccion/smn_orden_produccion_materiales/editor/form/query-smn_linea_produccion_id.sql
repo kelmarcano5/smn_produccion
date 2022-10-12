@@ -1,0 +1,1 @@
+select smn_produccion.smn_linea_produccion.smn_linea_produccion_id as id, smn_produccion.smn_linea_produccion.lpr_codigo ||' - '|| smn_produccion.smn_linea_produccion.lpr_descripcion as item from smn_produccion.smn_linea_produccion

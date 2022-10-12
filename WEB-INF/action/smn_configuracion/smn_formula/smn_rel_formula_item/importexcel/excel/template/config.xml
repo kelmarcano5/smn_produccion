@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<config nodb="true">
+
+	<summary>
+		Exportar documento excel directo al browser
+	</summary>
+
+	<log>false</log>
+
+	<transaction>
+		<classname>dinamica.GenericTransaction</classname>
+		<validator>false</validator>
+		<transaction>false</transaction>
+		<jdbc-log>false</jdbc-log>
+		<recordset id="query-smnrelformulaitem.sql" source="session" scope="transaction" />
+		
+	</transaction>
+
+	<output>
+		<classname>dinamica.GenericExcelOutput</classname>
+	</output>
+		
+	<excel 
+		filename='${lbl:b_relationship_formula_item}.xls' >
+		
+	<sheet recordset="query-table_stuck}.sql" sheetname="${lbl:b_relationship_formula_item}">
+				<col id='smn_formula_id_combo' label='${lbl:b_formula}' />
+		<col id='smn_nivel_estructura_id_combo' label='${lbl:b_level_structure}' />
+		<col id='smn_rel_formula_item_materiales_id' label='${lbl:b_relationship_formula_item_materials}' />
+		<col id='smn_item_id_combo' label='${lbl:b_item}' />
+		<col id='rfm_cantidad' label='${lbl:b_quantity}' />
+		<col id='smn_unidad_medida_rf_combo' label='${lbl:b_unidad_medida}' />
+		<col id='rfm_fecha_registro' label='${lbl:b_store_date}' />
+
+	</sheet>
+	
+	</excel>
+
+</config>
